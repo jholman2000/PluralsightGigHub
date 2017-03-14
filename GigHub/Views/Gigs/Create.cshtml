@@ -20,8 +20,8 @@
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Genre)
-        @Html.DropDownListFor(m => m.Genre, new SelectList(Model.Genres, "Id", "Name"))
+        @Html.DropDownListFor(m => m.Genre, new SelectList(Model.Genres, "Id", "Name"), "Select...", new { @class = "form-control" })
     </div>
-    <div class="form-group"></div>
+    <button type="submit" class="btn btn-primary">Save</button>
 </form>
 
