@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -21,4 +22,53 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+/**************************************************************************************************** 
+    MyBootstrap overrides
+*****************************************************************************************************/
+body {
+    font-size: 17px;
+}
+.navbar-inverse {
+    background-color: rgb(23, 43, 152);
+    border-color: #080808;
+}
+.navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-brand {
+    color: #f5f5f5;
+}
+.navbar-inverse .navbar-brand {
+    color: #fff;
+}
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    color: #ffffff;
+    background-color: hsla(230, 37%, 58%, 0.86);
+}
+.navbar-inverse .navbar-nav > .dropdown > a .caret {
+    border-top-color: #fff;
+    border-bottom-color: #fff;
+}
+.navbar-brand {
+    font-weight: 700;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-control {
+    font-size: 17px;
+    padding: 20px 15px;
+    border-radius: 9px;
+    -ms-border-radius: 9px;
+}
+.form-control:focus {
+    border-color: #2196f3;
+    outline: 0;
+    -webkit-box-shadow: none; 
+    box-shadow: none; 
+}
+.btn {
+    font-size: 17px;
+    padding: 7px 20px;
+    border-radius: 9px;
+    -ms-border-radius: 9px;
 }
