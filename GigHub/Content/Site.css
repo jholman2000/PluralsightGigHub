@@ -59,9 +59,9 @@ body {
 }
 .form-control {
     font-size: 17px;
-    padding: 20px 15px;
-    border-radius: 9px;
+    padding: 2px 2px;
     -ms-border-radius: 9px;
+    border-radius: 9px;
 }
 .form-control:focus {
     border-color: #2196f3;
@@ -70,10 +70,10 @@ body {
     box-shadow: none; 
 }
 .btn {
-    font-size: 17px;
-    padding: 7px 20px;
-    border-radius: 9px;
+    /*font-size: 17px;
+    padding: 7px 20px;*/
     -ms-border-radius: 9px;
+    border-radius: 9px;
 }
 
 /* Page-level styles*/

@@ -7,6 +7,19 @@ namespace GigHub.Models
 {
     public class Doctor
     {
+        public Doctor()
+        {
+            Attitude = Attitude.Unknown;
+            Status = Status.Unknown;
+            RegContacted = YesNoUnknown.Unknown;
+            SpecificallyKnown = YesNoUnknown.Unknown;
+            FrequentlyTreat = YesNoUnknown.Unknown;
+            Helpful = YesNoUnknown.Unknown;
+
+            Specialties = new List<Specialty>();
+            Hospitals = new List<Hospital>();
+        }
+
         public int ID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -41,6 +54,9 @@ namespace GigHub.Models
         public bool IsHRP { get; set; }         // High Risk Pregnancy
         public bool IsBSMP { get; set; }        // Bloodless Surgery Management Program
         public string PeerReview { get; set; }
+
+        public List<Specialty> Specialties { get; set; }
+        public List<Hospital> Hospitals { get; set; }
     }
 
     public enum Attitude

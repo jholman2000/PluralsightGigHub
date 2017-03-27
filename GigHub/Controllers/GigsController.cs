@@ -6,6 +6,7 @@ using Microsoft.AspNet.Identity;
 using System;
 using Dapper;
 using System.Data.SqlClient;
+using System.Data.Entity;
 
 namespace GigHub.Controllers
 {
@@ -19,6 +20,26 @@ namespace GigHub.Controllers
         }
 
         [Authorize]
+        public ActionResult Attending()
+        {
+            var userId = User.Identity.GetUserId();
+            var gigs = _context.Attendances
+                .Where(a => a.AttendeeId == userId)
+                .Select(a => a.Gig)
+                .Include(g => g.Artist)
+                .Include(g => g.Genre)
+                .ToList();
+
+            var viewModel = new GigsViewModel()
+            {
+                UpcomingGigs = gigs,
+                ShowActions = User.Identity.IsAuthenticated
+            };
+
+            return View(viewModel);
+        }
+
+        [Authorize]
         public ActionResult Create()
         {
             using (var conn = new SqlConnection(@"Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=C:\_Sandbox\GigHub\GigHub\App_Data\aspnet-GigHub-20170307015550.mdf;Initial Catalog=aspnet-GigHub-20170307015550;Integrated Security=True"))
@@ -28,6 +49,9 @@ namespace GigHub.Controllers
                 //var h = conn.Query<Hospital>("select * from hlc_Hospital").ToList();
                 var u = conn.Query<User>("select * from hlc_User").ToList();
             }
+
+            var d = new Doctor();
+
             //var d = new Doctor();
             //d.Attitude = Attitude.Favorable;
 
