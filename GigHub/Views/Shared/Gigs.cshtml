@@ -1,12 +1,9 @@
 ﻿@model GigHub.ViewModels.GigsViewModel
 @{
-    ViewBag.Title = "Attending";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Home Page";
 }
-
-<h2>Attending</h2>
-
-<ul class="gigs">
+<h1>@Model.Heading</h1>
+<ul class="gigs voffset40">
     @foreach (var gig in Model.UpcomingGigs)
     {
         <li>
@@ -20,10 +17,30 @@
                 <span class="artist">@gig.Artist.Name</span>
                 <span class="genre">@gig.Genre.Name</span>
                 @if (Model.ShowActions)
-                {
+                { 
                     <button data-gig-id="@gig.Id" class="btn btn-default btn-sm pull-right js-toggle-attendance">Going?</button>
                 }
             </div>
         </li>
     }
 </ul>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $(".js-toggle-attendance").click(function (e) {
+                var button = $(e.target);
+                $.post("/api/attendances", { GigId: button.attr("data-gig-id") })
+                .done(function () {
+                    button.removeClass("btn-default")
+                        .addClass("btn-info")
+                        .text("Going");
+                })
+                .fail(function () {
+                    alert("Something failed");
+                });
+            });
+        });
+    </script>
+}

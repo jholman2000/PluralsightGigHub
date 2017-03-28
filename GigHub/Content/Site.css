@@ -27,6 +27,13 @@ span.field-validation-error {
     color: red;
     font-weight: bold;
 }
+.voffset2  { margin-top:2px; }
+.voffset5 { margin-top:5px; }
+.voffset10 { margin-top:10px; }
+.voffset20 { margin-top:20px; }
+.voffset40 { margin-top:40px; }
+.voffset80 { margin-top:80px; }
+
 /**************************************************************************************************** 
     MyBootstrap overrides
 *****************************************************************************************************/
