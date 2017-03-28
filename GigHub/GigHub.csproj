@@ -214,10 +214,13 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AttendancesController.cs" />
+    <Compile Include="Controllers\FolloweesController.cs" />
+    <Compile Include="Controllers\FollowingsController.cs" />
     <Compile Include="Controllers\GigsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Dtos\AttendanceDto.cs" />
+    <Compile Include="Dtos\FollowingDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -253,9 +256,14 @@
     <Compile Include="Migrations\201703271530163_AddAttendance.Designer.cs">
       <DependentUpon>201703271530163_AddAttendance.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703281401354_AddFollowing.cs" />
+    <Compile Include="Migrations\201703281401354_AddFollowing.Designer.cs">
+      <DependentUpon>201703281401354_AddFollowing.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Attendance.cs" />
     <Compile Include="Models\Doctor.cs" />
+    <Compile Include="Models\Following.cs" />
     <Compile Include="Models\Hospital.cs" />
     <Compile Include="Models\Specialty.cs" />
     <Compile Include="Models\User.cs" />
@@ -334,9 +342,12 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Gigs\Create.cshtml" />
+    <Content Include="Views\Followees\Index.cshtml" />
+    <Content Include="Views\Gigs\Mine.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Followings\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -373,6 +384,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703271530163_AddAttendance.resx">
       <DependentUpon>201703271530163_AddAttendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703281401354_AddFollowing.resx">
+      <DependentUpon>201703281401354_AddFollowing.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
