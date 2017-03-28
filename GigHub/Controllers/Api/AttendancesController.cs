@@ -8,7 +8,7 @@ using GigHub.Dtos;
 using GigHub.Models;
 using Microsoft.AspNet.Identity;
 
-namespace GigHub.Controllers
+namespace GigHub.Controllers.Api
 {
 
     [Authorize]
