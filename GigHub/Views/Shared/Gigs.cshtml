@@ -2,7 +2,8 @@
 @{
     ViewBag.Title = "Home Page";
 }
-<h1>@Model.Heading</h1>
+<h1><span class="fa fa-2x fa-user-md"></span> @Model.Heading</h1>
+
 <ul class="gigs voffset40">
     @foreach (var gig in Model.UpcomingGigs)
     {

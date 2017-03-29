@@ -61,31 +61,27 @@ namespace GigHub.Models
 
     public enum Attitude
     {
-        Unknown,
-        Cooperative,
-        Favorable,
-        Limitations,
-        NotFavorable
+        Unknown      = 0,
+        Cooperative  = 1,
+        Favorable    = 2,
+        Limitations  = 3,
+        NotFavorable = 4
     }
 
     public enum Status
     {
-        Unknown,
-        NewlyIdentified,
-        LetterSent,
-        notused3,
-        notused4,
-        notused5,
-        notused6,
-        Deceased,
-        MovedOutOfArea,
-        Active,
-        Retired
+        Unknown         = 0,
+        NewlyIdentified = 1,
+        LetterSent      = 2,
+        Deceased        = 7,
+        MovedOutOfArea  = 8,
+        Active          = 9,
+        Retired         = 10
     }
     public enum YesNoUnknown
     {
-        Unknown,
-        Yes,
-        No
+        Unknown = 0,
+        Yes     = 1,
+        No      = 2
     }
 }
