@@ -9,17 +9,18 @@ namespace GigHub.Models
     {
         public Doctor()
         {
-            Attitude = Attitude.Unknown;
-            Status = Status.Unknown;
-            RegContacted = YesNoUnknown.Unknown;
+            Attitude          = Attitude.Unknown;
+            Status            = Status.Unknown;
+            RegContacted      = YesNoUnknown.Unknown;
             SpecificallyKnown = YesNoUnknown.Unknown;
-            FrequentlyTreat = YesNoUnknown.Unknown;
-            Helpful = YesNoUnknown.Unknown;
-
-            Specialties = new List<Specialty>();
-            Hospitals = new List<Hospital>();
+            FrequentlyTreat   = YesNoUnknown.Unknown;
+            Helpful           = YesNoUnknown.Unknown;
+            Specialties       = new List<DoctorSpecialty>();
+            Hospitals         = new List<DoctorHospital>();
+            Notes             = new List<DoctorNote>();
         }
 
+        // hlc_Doctor fields
         public int ID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -42,8 +43,6 @@ namespace GigHub.Models
         public string DOCNOTES { get; set; }
         public DateTime DateLastUpdated { get; set; }
         public string LastUpdatedBy { get; set; }
-
-        //-- New fields 1/30/11
         public Status Status { get; set; }
         public DateTime StatusDate { get; set; }
         public YesNoUnknown RegContacted { get; set; }
@@ -55,10 +54,48 @@ namespace GigHub.Models
         public bool IsBSMP { get; set; }        // Bloodless Surgery Management Program
         public string PeerReview { get; set; }
 
-        public List<Specialty> Specialties { get; set; }
-        public List<Hospital> Hospitals { get; set; }
+        // Derived fields
+        public string FullName {
+            get { return (FirstName + " " + LastName); }
+        }
+        public string AttitudeText {
+            get { return Enum.GetName(Attitude.GetType(), Attitude); }
+        }
+        public string StatusText
+        {
+            get { return Enum.GetName(Status.GetType(), Status); }
+        }
+
+        // Related table data
+        public List<DoctorSpecialty> Specialties { get; set; }
+        public List<DoctorHospital> Hospitals { get; set; }
+        public List<DoctorNote> Notes { get; set; }
     }
 
+    public class DoctorSpecialty
+    {
+        public int Id { get; set; }
+        public int DoctorId { get; set; }
+        public int SpecialtyId { get; set; }
+        public string AreaOfExpertise { get; set; }
+        public string SpecialtyName { get; set; }
+    }
+    public class DoctorHospital
+    {
+        public int Id { get; set; }
+        public int DoctorId { get; set; }
+        public int HospitalId { get; set; }
+        public string Notes { get; set; }
+        public string HospitalName { get; set; }
+    }
+    public class DoctorNote
+    {
+        public int Id { get; set; }
+        public string UserId { get; set; }
+        public DateTime DateEntered { get; set; }
+        public string Notes { get; set; }
+        public string UserName { get; set; }
+    }
     public enum Attitude
     {
         Unknown      = 0,

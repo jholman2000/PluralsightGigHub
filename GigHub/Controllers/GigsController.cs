@@ -4,8 +4,8 @@ using GigHub.ViewModels;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using System;
-using Dapper;
-using System.Data.SqlClient;
+//using Dapper;
+//using System.Data.SqlClient;
 using System.Data.Entity;
 
 namespace GigHub.Controllers
@@ -58,13 +58,14 @@ namespace GigHub.Controllers
         [Authorize]
         public ActionResult Create()
         {
-            using (var conn = new SqlConnection(@"Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=C:\_Sandbox\GigHub\GigHub\App_Data\aspnet-GigHub-20170307015550.mdf;Initial Catalog=aspnet-GigHub-20170307015550;Integrated Security=True"))
-            {
-                conn.Open();
-                //var d = conn.Query<Doctor>("select * from hlc_Doctor").ToList();
-                //var h = conn.Query<Hospital>("select * from hlc_Hospital").ToList();
-                var u = conn.Query<User>("select * from hlc_User").ToList();
-            }
+            
+            //using (var conn = new SqlConnection(@"Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=C:\_Sandbox\GigHub\GigHub\App_Data\aspnet-GigHub-20170307015550.mdf;Initial Catalog=aspnet-GigHub-20170307015550;Integrated Security=True"))
+            //{
+            //    conn.Open();
+            //    //var d = conn.Query<Doctor>("select * from hlc_Doctor").ToList();
+            //    //var h = conn.Query<Hospital>("select * from hlc_Hospital").ToList();
+            //    var u = conn.Query<User>("select * from hlc_User").ToList();
+            //}
 
             var d = new Doctor();
 

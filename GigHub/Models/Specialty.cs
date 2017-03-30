@@ -10,5 +10,6 @@ namespace GigHub.Models
         public int ID { get; set; }
         public string SpecialtyName { get; set; }
         public string SpecialtyCode { get; set; }
+        public string AreaOfExpertise { get; set; }
     }
 }

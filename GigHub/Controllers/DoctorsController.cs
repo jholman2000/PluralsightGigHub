@@ -3,11 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using GigHub.Models;
+using GigHub.Controllers.Api;
 
 namespace GigHub.Controllers
 {
     public class DoctorsController : Controller
     {
+        private DoctorsApi _doctorRepository;
+
+        public DoctorsController()
+        {
+            _doctorRepository = new DoctorsApi();
+        }
+
         // GET: Doctors
         public ActionResult Index()
         {
@@ -15,9 +24,10 @@ namespace GigHub.Controllers
         }
 
         // GET: Doctors/Details/5
-        public ActionResult Details(int id)
+        public ActionResult ViewDoctor(int id)
         {
-            return View();
+            var model = _doctorRepository.Get(id);
+            return View(model);
         }
 
         // GET: Doctors/Create
