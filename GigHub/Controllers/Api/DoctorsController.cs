@@ -2,16 +2,17 @@
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Description;
 using Dapper;
 using GigHub.Models;
 
 namespace GigHub.Controllers.Api
 {
-    public class DoctorsApi : ApiController
+    public class DoctorsController : ApiController
     {
         private SqlConnection _conn;
 
-        public DoctorsApi()
+        public DoctorsController()
         {
             _conn = new SqlConnection(@"Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=C:\_Sandbox\GigHub\GigHub\App_Data\aspnet-GigHub-20170307015550.mdf;Initial Catalog=aspnet-GigHub-20170307015550;Integrated Security=True");
         }
@@ -62,12 +63,14 @@ namespace GigHub.Controllers.Api
 
         // POST: api/Doctors
         [HttpPost]
+        [ResponseType(typeof(Doctor))]
+        [Route("api/Doctors")]
         public IHttpActionResult Post(Doctor d)
         {
-            var x = new Doctor();
-            x.FirstName = "jeff";
-            x.LastName = "jeff";
-            return Ok<Doctor>(x);
+            var doctor = new Doctor();
+            doctor.FirstName = "jeff";
+            doctor.LastName = "jeff";
+            return Ok(doctor);
         }
 
         // PUT: api/Doctors/5

@@ -10,11 +10,13 @@ namespace GigHub.Controllers
 {
     public class DoctorsController : Controller
     {
-        private DoctorsApi _doctorRepository;
+        private Api.DoctorsController _doctorRepository;
+        private Api.HospitalsController _hospitalRepository;
 
         public DoctorsController()
         {
-            _doctorRepository = new DoctorsApi();
+            _doctorRepository = new Api.DoctorsController();
+            _hospitalRepository = new HospitalsController();
         }
 
         // GET: Doctors
