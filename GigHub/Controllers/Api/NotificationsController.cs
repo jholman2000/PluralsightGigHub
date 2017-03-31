@@ -5,6 +5,7 @@ using System.Web.Http;
 using AutoMapper;
 using GigHub.Dtos;
 using GigHub.Models;
+using Microsoft.AspNet.Identity;
 
 namespace GigHub.Controllers.Api
 {
@@ -18,8 +19,8 @@ namespace GigHub.Controllers.Api
         }
         public IEnumerable<NotificationDto> GetNewNotifications()
         {
-            //var userId =  User.Identity.GetUserId();  //
-            var userId = "a20cc1ad-ac9a-45a5-95b5-a87689f9e663";
+            var userId =  User.Identity.GetUserId();  //
+            //var userId = "a20cc1ad-ac9a-45a5-95b5-a87689f9e663";
             var notifications = _context.UserNotifications
                 .Where(un => un.UserId == userId && !un.IsRead)
                 .Select(un => un.Notification)
